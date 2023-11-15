@@ -44,9 +44,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="62" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblNumero" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNumero" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblresultado" min="-2" max="-2" attributes="0"/>

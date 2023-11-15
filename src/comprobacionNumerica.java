@@ -75,9 +75,9 @@ public class comprobacionNumerica extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumero))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumero, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblresultado)
                 .addGap(32, 32, 32)
@@ -108,7 +108,7 @@ public class comprobacionNumerica extends javax.swing.JFrame {
       lblresultado.setText(numero + " es un número perfecto.");
       lblresultado.setForeground(Color.GREEN);
     } else {
-        lblresultado.setText(numero + " no es un número perfecto.");
+        lblresultado.setText(numero + " no es un número perfecto ");
         lblresultado.setForeground(Color.RED);
     }
 
