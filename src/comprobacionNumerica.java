@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 /*
@@ -65,11 +66,11 @@ public class comprobacionNumerica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Btnok, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
-                .addComponent(lblresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
+                .addContainerGap(131, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblresultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,29 +90,58 @@ public class comprobacionNumerica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnokActionPerformed
-                                     
-    int numero = Integer.parseInt(txtNumero.getText());
-   
-    int op = 1;
-    int sumaDivisores = 0;
+int numero = Integer.parseInt(txtNumero.getText());
+int sumaDivisores = 0;
+boolean esPrimo = true;
 
-    while (op < numero) {
-        if (numero % op == 0) {
-  
-            sumaDivisores = sumaDivisores+op; 
+for (int op = 1; op <= numero / 2; op++) {
+    if (numero % op == 0) {
+        sumaDivisores += op;
+    }
+    if (op > 1 && numero % op == 0 && op < numero) {
+        esPrimo = false;
+    }
+}
+
+boolean esPerfecto = (sumaDivisores == numero);
+
+if (esPerfecto) {
+    lblresultado.setText(numero + " es un número perfecto.");
+    lblresultado.setForeground(Color.GREEN);
+} else {
+    lblresultado.setText(numero + " no es un número perfecto.");
+    lblresultado.setForeground(Color.RED);
+}
+
+
+        if (esPrimo && numero > 1) {
+            // Resto del código
+            ArrayList<Integer> primosAnteriores = new ArrayList<>();
+            int sumaPrimos = 0;
+
+            for (int i = 2; i < numero; i++) {
+                boolean primo = true;
+                for (int j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        primo = false;
+                        break;
+                    }
+                }
+                if (primo) {
+                    primosAnteriores.add(i);
+                    sumaPrimos += i; // Suma el número primo
+                }
+            }
+
+            double raizSumaPrimos = Math.sqrt(sumaPrimos); // Calcula la raíz cuadrada
+
+            // Actualiza lblresultado con la suma de primos y su raíz
+            System.out.println("Números primos anteriores a " + numero + ": " + primosAnteriores);
+            System.out.println("La suma de los números primos anteriores es: " + sumaPrimos);
+            System.out.println("La raíz cuadrada de la suma es: " + raizSumaPrimos);
+            lblresultado.setText(lblresultado.getText()+"es un numero primo");
+
         }
-        op++;
-    }
-    
-    if (sumaDivisores == numero) {
-    
-      lblresultado.setText(numero + " es un número perfecto.");
-      lblresultado.setForeground(Color.GREEN);
-    } else {
-        lblresultado.setText(numero + " no es un número perfecto ");
-        lblresultado.setForeground(Color.RED);
-    }
-
     }//GEN-LAST:event_BtnokActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
