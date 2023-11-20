@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /*
@@ -34,6 +35,12 @@ public class comprobacionNumerica extends javax.swing.JFrame {
         txtNumero = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
         lblresultado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        primos = new javax.swing.JTextArea();
+        suma = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        raiz = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,42 +62,97 @@ public class comprobacionNumerica extends javax.swing.JFrame {
         lblresultado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblresultado.setText(".....");
 
+        primos.setColumns(20);
+        primos.setRows(5);
+        jScrollPane1.setViewportView(primos);
+
+        suma.setText("...");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel2.setText("Operaciones Basicas");
+
+        raiz.setText("...");
+
+        jLabel1.setText("los Numeros primos anteriores son");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Btnok, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblresultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblresultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(raiz, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(33, 33, 33)
+                                    .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Btnok, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(155, 155, 155))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNumero, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)))
                 .addComponent(lblresultado)
-                .addGap(32, 32, 32)
-                .addComponent(Btnok)
-                .addGap(116, 116, 116))
+                .addGap(18, 18, 18)
+                .addComponent(suma)
+                .addGap(18, 18, 18)
+                .addComponent(raiz)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btnok))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnokActionPerformed
+
+        
+        
+        
+        primos.setText("");
+suma.setText("");
+raiz.setText("");
+
 int numero = Integer.parseInt(txtNumero.getText());
+        if (numero>500 || numero<=0) {
+            JOptionPane.showMessageDialog(rootPane, "ingrese un numero entre el 1 y el 500");
+        }else{
 int sumaDivisores = 0;
 boolean esPrimo = true;
 
@@ -115,7 +177,7 @@ if (esPerfecto) {
 
 
         if (esPrimo && numero > 1) {
-            // Resto del código
+           
             ArrayList<Integer> primosAnteriores = new ArrayList<>();
             int sumaPrimos = 0;
 
@@ -124,23 +186,25 @@ if (esPerfecto) {
                 for (int j = 2; j < i; j++) {
                     if (i % j == 0) {
                         primo = false;
-                        break;
+                       
                     }
                 }
-                if (primo) {
+                
                     primosAnteriores.add(i);
                     sumaPrimos += i; // Suma el número primo
-                }
+                
             }
 
             double raizSumaPrimos = Math.sqrt(sumaPrimos); // Calcula la raíz cuadrada
 
-            // Actualiza lblresultado con la suma de primos y su raíz
-            System.out.println("Números primos anteriores a " + numero + ": " + primosAnteriores);
-            System.out.println("La suma de los números primos anteriores es: " + sumaPrimos);
-            System.out.println("La raíz cuadrada de la suma es: " + raizSumaPrimos);
+            primos.setText("Números primos anteriores a " + numero + ": " + primosAnteriores);
+            suma.setText("La suma de los números primos anteriores es: " + sumaPrimos);
+           raiz.setText("La raíz cuadrada de la suma es: " + raizSumaPrimos);
             lblresultado.setText(lblresultado.getText()+"es un numero primo");
+            toString(primosAnteriores);
+            
 
+        }
         }
     }//GEN-LAST:event_BtnokActionPerformed
 
@@ -185,8 +249,18 @@ if (esPerfecto) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btnok;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblresultado;
+    private javax.swing.JTextArea primos;
+    private javax.swing.JLabel raiz;
+    private javax.swing.JLabel suma;
     private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
+
+    private void toString(ArrayList<Integer> primosAnteriores) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
